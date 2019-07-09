@@ -1,3 +1,40 @@
-<p>
-  bollywood-list works!
-</p>
+<div fxFlex="100" class="selectedschemas">
+
+    <div>Selected Tables</div>
+
+
+
+
+    <div class="margin20" fxLayout="row">
+
+        <div *ngFor="let schemaobj of selectedschemas; let i=index">
+
+            <div class="marginfromleft" fxLayout="column">
+                <div>{{schemaobj.name}}</div>
+                <mat-divider></mat-divider>
+                <div *ngFor="let value of schemaobj.tables1">
+                    <div fxFlex="100" fxLayout="row">
+                        <div fxLayoutAlign="start start">{{value}}</div>
+                        <div fxLayoutAlign="end start">cut</div>
+                    </div>
+                </div>
+
+                <div *ngIf="schemaobj.tables1.length==6" (click)="clicked[i]=true">***</div>
+
+                <div *ngIf="clicked[i]==true">
+
+
+                    <div *ngFor="let value of schemaobj.tables2">
+                        <div fxFlex="100" fxLayout="row">
+                            <div fxLayoutAlign="start start">{{value}}</div>
+                            <div fxLayoutAlign="end start">cut</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
